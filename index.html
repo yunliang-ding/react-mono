@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 10px">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://my-dev-ops.oss-cn-beijing.aliyuncs.com/report/report.js" page="tes123"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      font-size: 20px;
+      /* display: flex;
+      align-items: center; 
+      justify-content: center; */
+
+    }
+
+    .wrap .wrap1 {
+      background-color: beige;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* animation: myName .3s ease-in infinite; */
+      font-size: 2rem;
+
+    }
+
+    .wrap2 {
+      width: 100px;
+      height: 1px;
+      background-color: blue;
+      transform: scale(0.5);
+    }
+
+    @keyframes myName {
+      0% {
+        transform: rotate(0deg)
+      }
+
+      100% {
+        transform: rotate(360deg)
+      }
+    }
+
+    .wrap3 {
+      width: 0px;
+      height: 0px;
+      border: 10px solid red;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-right-color: transparent;
+    }
+    #box{
+      background-color: red;
+      width: 10px;
+      height: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="qw">点几下</button>
+  <div class="wrap">
+    11
+    <div class="wrap1">11</div>
+    <div class="wrap2"></div>
+    <div class="wrap3"></div>
+  </div>
+  <div>
+    <span>122</span>
+    <span>122</span>
+  </div>
+  <button id="btn1">点击12211221</button>
+  <div id="box">热尔</div>
+  <script>
+    // document.querySelector('#qw').addEventListener('click', () => {
+    //   window.open('https://www.zhipin.com/wapi/zpchat/notify/setting/get');
+    // })
+    // var ws = new WebSocket('ws://studio.yunliang.cloud:8008');
+    // ws.onmessage = function (event) {
+    //   var data = event.data;
+    //   console.log('后端的消息')
+    // };
+    // ws.onerror = function () {
+    //   ws.close();
+    // };
+    // document.querySelector('#d').addEventListener('click', () => {
+    //   ws.send('test213'); //每次只能发送字符串 
+    // })
+    // const channel1 = new BroadcastChannel('demos');
+    // setTimeout(() => {
+    //   channel1.postMessage('要发送消息啦啦啦啦啦啦啦');
+    // }, 2000)
+    const box = document.getElementById('box');
+    console.log(1212, document.getElementById('btn1'))
+    document.getElementById('btn1').addEventListener('click', () => {
+      let curWidth = 100
+      const maxWidth = 400
+      console.log('run')
+      function addWidth() {
+        curWidth = curWidth + 3
+        box.style.width = `${curWidth}px`
+        if (curWidth < maxWidth) {
+          window.requestIdleCallback(addWidth) // 时间不用自己控制
+        }
+      }
+      addWidth()
+    })
+  </script>
+</body>
+
+</html>
